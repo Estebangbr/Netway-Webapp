@@ -18,7 +18,7 @@ Pour utiliser notre application, c'est très simple :
 
 >Posséder Python 3.7 
 
-`git clone https://github.com/Yahbs/Python-NetWay.git`
+`git clone https://github.com/Estebangbr/Netway-Webapp.git`
 
 Ensuite vous devez exécuter le fichier _main.py_
 
