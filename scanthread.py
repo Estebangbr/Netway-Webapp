@@ -17,7 +17,7 @@ def scan_range(port): # Création de la fonction scan
     except:
        pass
 
-def threader (): # Définir le thread
+def threader (): # Définir le threading
    while True:
        worker = q.get()
        scan_range(worker)
@@ -25,7 +25,7 @@ def threader (): # Définir le thread
 
 q = Queue ()
 
-for x in range (60): # Définir le temps
+for x in range (60):
     t = threading.Thread(target=threader)
     t.daemon = True
     t.start()
