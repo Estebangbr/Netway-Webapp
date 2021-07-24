@@ -6,7 +6,7 @@ print_lock = threading.Lock()
 
 target ='localhost' # Ciblage de l'analyse des ports ouverts
 
-def scan_range(port):
+def scan_range(port): # Création de la fonction scan
  
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # Création d'un socket pour la connexion avec le serveur en local
     try:
@@ -34,3 +34,4 @@ for worker in range (1,101): # Effectuer une recherche des ports ouverts
     q.put(worker)
 
 q.join()
+
