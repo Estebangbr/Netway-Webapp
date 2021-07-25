@@ -6,7 +6,7 @@ def bruteforce(word, length): #fonction bruteforce
             if mdp == word + letter: 
                 print("Vous avez trouvé le mdp est " + word + letter) # Si le mdp = bruteforce on s'arrête
             else:
-                #print(word + letter) #Afficher chaque test
+                print(word + letter) #Afficher chaque test
                 bruteforce(word + letter, length + 1) #Sinon on test la combinaison suivante
 
 
