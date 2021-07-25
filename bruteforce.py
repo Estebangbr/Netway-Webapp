@@ -1,15 +1,24 @@
-liste = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9'] #Definission de la liste - on peut ajouter les caractères spéciaux etc...
+import itertools
+from time import sleep
+import os
+import multiprocessing as mp
+from threading import Thread
 
-def bruteforce(word, length): #fonction bruteforce
-    if length <= 6: #Si taille du mot de passe inférieur ou egal a 5 on peut commencer le bruteforce
-        for letter in liste:
-            if mdp == word + letter: 
-                print("Vous avez trouvé le mdp est " + word + letter) # Si le mdp = bruteforce on s'arrête
-            else:
-                print(word + letter) #Afficher chaque test
-                bruteforce(word + letter, length + 1) #Sinon on test la combinaison suivante
+count = CharLength = 1
 
+pw = input("Password: ")
 
-mdp = input("Entrez votre mdp : ") #Saisir le mot de passe à trouver
-bruteforce('', 1)
+chars = ("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_.")
 
+pw = tuple(pw)
+
+for CharLength in range(1, 25):
+        passwords = (itertools.product(chars, repeat = CharLength))
+
+        first_match = filter(lambda elm: elm == pw, passwords)
+        try:
+            passwd = next(first_match)
+            passwd =  "".join(passwd)
+            print("Password found: " + passwd)
+        except StopIteration:
+            pass
