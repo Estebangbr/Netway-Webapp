@@ -8,7 +8,7 @@ count = CharLength = 1
 
 pw = input("Password: ")
 
-chars = ("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_.")
+chars = ("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_.!?:;,")
 
 pw = tuple(pw)
 
@@ -22,3 +22,4 @@ for CharLength in range(1, 25):
             print("Password found: " + passwd)
         except StopIteration:
             pass
+           
