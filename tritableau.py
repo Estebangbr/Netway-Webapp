@@ -11,10 +11,12 @@ def tri_selection(tab):
        tab[min] = tmp
    return tab
 # Programme principale pour tester le code ci-dessus
-tab = [98, 22, 15, 32, 2, 79, 65,34]
+tab = [98, 45, 178, 32, 45, 79, 65,654]
  
 tri_selection(tab)
  
 print ("Le tableau trié est:")
 for i in range(len(tab)):
     print ("%d" %tab[i])
+
+    #Fin du script du tableau
