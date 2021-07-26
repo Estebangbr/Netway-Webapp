@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Netway Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='Pictures/netway_icon.ico') }}"">
+</head>
+
+<body>
+    <section class="hero is-info is-fullheight">
+
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+
+                    <div id="navbarMenuHeroB" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a href="{{ url_for('main.index') }}" class="navbar-item">
+                                Accueil
+                            </a>
+                            {% if current_user.role == "User" %}
+                                <a href="{{ url_for('main.profile3') }}" class="navbar-item">
+                                Profil
+                                </a>
+                            {% elif current_user.role == "Administrateur-Classique" %}
+                                <a href="{{ url_for('main.profile2') }}" class="navbar-item">
+                                Profil
+                                </a>
+                            {% else %}
+                                <a href="{{ url_for('main.profile1') }}" class="navbar-item">
+                                Profil                             
+                                </a>
+                            {% endif %}    
+                            <a href="{{ url_for('auth.login') }}" class="navbar-item">
+                                Connexion
+                            </a>
+                            <a href="{{ url_for('auth.signup') }}" class="navbar-item">
+                                Inscription
+                            </a>
+                            <a href="{{ url_for('auth.logout') }}" class="navbar-item">
+                                Deconnexion
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="hero-body">
+            <div class="container has-text-centered">
+               {% block content %}
+               {% endblock %}
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
