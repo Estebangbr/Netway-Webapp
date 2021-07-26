@@ -8,10 +8,10 @@
     # ouvre la connexion ldap du serveur windows 192.168.1.2
     print('initializing ..')
 
-    conn = ldap.initialize('ldap://192.168.1.2')
+    conn = ldap.initialize('ldap://192.168.1.190')
     conn.protocol_version = 3
     conn.set_option(ldap.OPT_REFERRALS, 0)
-    conn.simple_bind_s('Administrateur@paris.local', 'Paris16..')
+    conn.simple_bind_s('Administrateur@technodev.local', 'Paris159504!')
 
     # Dn du nouvel utilisateur
     DN = ('CN=' + print('adduser') + ',OU=utilisateurs,DC=paris,DC=local')
