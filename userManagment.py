@@ -34,3 +34,24 @@
     result = conn.add_s(DN, ldap.modlist.addModlist(modlist))
     print('Utilisateur créé')
     exit
+
+    AUTH_LDAP_USER_FLAGS_BY_GROUP = {
+    "is_active": "CN=ipa-users,cn=users,DC=sb,DC=ch",
+    "is_staff": "CN=ipa-users,cn=users,DC=sb,DC=ch",
+    "is_superuser": "CN=ipa-users,cn=users,DC=sb,DC=ch"
+}
+
+# This is the default, but be explicit.
+AUTH_LDAP_ALWAYS_UPDATE_USER = True
+
+# Use LDAP group membership to calculate group permissions.
+AUTH_LDAP_FIND_GROUP_PERMS = True
+
+# Cache settings
+AUTH_LDAP_CACHE_GROUPS = True
+AUTH_LDAP_GROUP_CACHE_TIMEOUT = 3600
+
+AUTHENTICATION_BACKENDS = (
+    'django_auth_ldap.backend.LDAPBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
