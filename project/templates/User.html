@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+  Bienvenue M. {{ name }}, vous êtes un : {{ role }} ! User
+</h1>
+
+<div class="buttons" style="width:800px; margin:0 auto;">
+  <button class="button is-primary is-rounded"><a href="{{ url_for('auth.changement') }}">Modifier le mot de passe</a></button>
+</div>
+{% endblock %}

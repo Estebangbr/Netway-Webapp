@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="box">
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+      <div class="notification is-danger">
+        <p>{{ messages }}</p>  
+      </div>
+  {% endif %}
+  {% endwith %}
+</div>
+
+
+  <div class="columns is-mobile is-centered">
+    <div class="column is-half">
+
+      <h1 class="title">
+        Gestion des utilisateurs
+      </h1>
+
+<table class="table is-bordered">
+    <thead>
+      <tr>
+        <th><abbr title="id">ID</abbr></th>
+        <th><abbr title="nom">Nom</abbr></th>
+        <th><abbr title="email">E-mail</abbr></th>
+        <th><abbr title="role">Role</abbr></th>
+      </tr>
+
+
+       {% for (row1,row2,row3,row4) in zip(ids, nom, mail, role) %}
+             <tr>
+                 <td> {{ row1[0] }} </td>
+                 <td> {{ row2[0] }} </td>
+                 <td> {{ row3[0] }} </td>
+                 <td> {{ row4[0] }} </td>    
+
+         
+            </tr>
+         {% endfor %}
+
+ 
+    </thead>
+</table>
+
+<form method="POST" action="/management">
+<div class="select is-danger">
+  <select name="suppr">
+  {% for row in mail %}
+  <option> {{ row[0] }} </option>
+  {% endfor %}
+  </select>
+</div>
+
+<div class="buttons">
+  <button class="button is-danger">Supprimer</button>
+
+</div>
+
+</form>
+
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+{% endblock %}
